@@ -33,13 +33,13 @@ export function CustomCarousel(data: any) {
                                 backgroundImage: `url(${popular.cover})`,
                             }}>
                             {/* <img src="" alt="Hero Anime"  className="object-cover" /> */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                             <div className="absolute inset-0 flex flex-col items-start justify-center gap-4 px-4 sm:px-6 md:px-8 lg:px-10">
                                 <div className="max-w-2xl">
-                                    <h1 className="text-3xl font-bold tracking-tighter text-foreground sm:text-4xl md:text-5xl lg:text-6xl">
+                                    <h1 className="text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl lg:text-6xl">
                                         {popular.title.english}
                                     </h1>
-                                    <p className="mt-4 text-lg text-muted-foreground sm:text-xl md:text-2xl"
+                                    <p className="mt-4 text-lg text-white sm:text-xl md:text-2xl"
                                         dangerouslySetInnerHTML={{
                                             __html: popular.description.slice(0, 50) + "...",
                                         }}>

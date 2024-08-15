@@ -1,48 +1,65 @@
 import Link from "next/link";
 import ThemeToggle from "./theme-toggle";
 import { Button } from "./ui/button";
-import { House } from 'lucide-react';
+import { BookText, Cat, House, Search, UserRoundPen } from 'lucide-react';
 export default function Navbar() {
     return (
         <>
             <div className="hidden md:block">
                 <div className="fixed left-4 top-1/2 z-20 flex -translate-y-1/2 flex-col items-center gap-4 rounded-xl bg-background  shadow-lg md:left-2 md:p-2 border-2 dark:border-2">
+                    <Link href={`/`}>
                     <Button variant="ghost" size="icon" className="rounded-full ">
                         <House className="h-5 w-5" />
                         <span className="sr-only">Home</span>
                     </Button>
+                    </Link>
+                    <Link href={`/anime`}>
                     <Button variant="ghost" size="icon" className="rounded-full ">
-                        <House className="h-5 w-5" />
-                        <span className="sr-only">Explore</span>
+                        <Cat className="h-5 w-5" />
+                        <span className="sr-only">Anime</span>
                     </Button>
+                    </Link>
+                    <Link href={`/manga`}>
                     <Button variant="ghost" size="icon" className="rounded-full">
-                        <House className="h-5 w-5" />
-                        <span className="sr-only">Trending</span>
+                        <BookText  className="h-5 w-5" />
+                        <span className="sr-only">Manga</span>
                     </Button>
+                    </Link>
+                    <Link href={`/search`}>
                     <Button variant="ghost" size="icon" className="rounded-full">
-                        <House className="h-5 w-5" />
-                        <span className="sr-only">Profile</span>
+                        <Search className="h-5 w-5" />
+                        <span className="sr-only">Search</span>
                     </Button>
+                    </Link>
+                    <Link href={`/profile`}>
+                    <Button variant="ghost" size="icon" className="rounded-full">
+                        <UserRoundPen  className="h-5 w-5" />
+                        <span className="sr-only">Account</span>
+                    </Button>
+                    </Link>
                     <ThemeToggle />
                 </div>
             </div>
             <div className="block md:hidden">
-                <nav className="fixed bottom-0 left-0 right-0 z-50 flex h-[70px] w-full items-center justify-around bg-background shadow-t">
-                    <Link href="#" className="flex flex-col items-center justify-center gap-1" prefetch={false}>
+                <nav className="fixed bottom-0 left-0 right-0 z-50 flex h-[50px] w-full items-center justify-around bg-background shadow-t">
+                    <Link href={`/`} className="flex flex-col items-center justify-center gap-1" prefetch={false}>
                         <House className="h-6 w-6 text-muted-foreground" />
                     </Link>
-                    <Link href="#" className="flex flex-col items-center justify-center gap-1" prefetch={false}>
-                        <House className="h-6 w-6 text-muted-foreground" />
+                    <Link href={`/anime`}  className="flex flex-col items-center justify-center gap-1" prefetch={false}>
+                        <Cat className="h-6 w-6 text-muted-foreground" />
                     </Link>
-                    <Link href="#" className="flex flex-col items-center justify-center gap-1" prefetch={false}>
-                        <House className="h-6 w-6 text-muted-foreground" />
+                    <Link href={`/manga`}  className="flex flex-col items-center justify-center gap-1" prefetch={false}>
+                        <BookText className="h-6 w-6 text-muted-foreground" />
                     </Link>
-                    <Link href="#" className="flex flex-col items-center justify-center gap-1" prefetch={false}>
-                        <House className="h-6 w-6 text-muted-foreground" />
+                    <Link href={`/search`}  className="flex flex-col items-center justify-center gap-1" prefetch={false}>
+                        <Search className="h-6 w-6 text-muted-foreground" />
                     </Link>
-                    <Link href="#" className="flex flex-col items-center justify-center gap-1" prefetch={false}>
+                    <Link href={`/profile`}  className="flex flex-col items-center justify-center gap-1" prefetch={false}>
+                        <UserRoundPen className="h-6 w-6 text-muted-foreground" />
+                    </Link>
+                    <div className="flex flex-col items-center justify-center gap-1">
                         <ThemeToggle />
-                    </Link>
+                    </div>
                 </nav>
             </div>
         </>

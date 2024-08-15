@@ -13,7 +13,7 @@ export default function Trending(props: any) {
                     <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 lg:gap-6">
                         {trending.map((trending: any, index: any) => (
                             <div key={index} className="group relative rounded-lg overflow-hidden">
-                                <Link href={`/${TrendingName}/info?id=${trending.id}`} className="block" prefetch={false}>
+                                <Link href={`/${TrendingName}/info/${trending.id}`} className="block" prefetch={false}>
                                     <img
                                         src={trending.image}
                                         width={300}

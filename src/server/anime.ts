@@ -27,3 +27,9 @@ export async function FetchEpisodesAnime(id: string){
     const data = await response.json();
     return data;
 }
+
+export async function FetchEpisodesSrcAnime(id: string, ep: string, category: string){
+    const response = await fetch(`${process.env.AnimeApi_2}/anime/episode-srcs?id=${id}?ep=${ep}&&category=${category}`, { next: { revalidate: 3600 } });
+    const data = await response.json();
+    return { data, status: response.status };
+}
