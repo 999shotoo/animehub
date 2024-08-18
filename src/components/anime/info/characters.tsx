@@ -1,4 +1,5 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
+import Image from "next/image";
 
 export default function AnimeInfoChar(props: any){
     const characters = props.AnilistInfo.characters;
@@ -9,7 +10,7 @@ export default function AnimeInfoChar(props: any){
             {characters.map((characters: any, index: any) => (
                 <div className="flex items-center gap-4 py-2" key={index}>
                     <div className="flex-shrink-0 w-16 h-16 rounded-full overflow-hidden">
-                        <img
+                        <Image
                             src={characters.image}
                             alt="Character Avatar"
                             width={64}

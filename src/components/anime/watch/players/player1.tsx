@@ -10,7 +10,7 @@ export default function Player1(props: any) {
     const captions = data.tracks.filter((track: any) => track.kind === 'captions');
     return (
         <>
-            <MediaPlayer src={url} className='h-[80vh] mt-10 md:mt-0 md:h-[100vh]'>
+            <MediaPlayer src={url} className='h-[90vh] mt-8 md:mt-0 md:h-[100vh]'>
                 <MediaProvider />
                 {captions.map((track: any, index: any) => (
                 <Track

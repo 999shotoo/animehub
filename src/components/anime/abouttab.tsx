@@ -6,7 +6,8 @@ import AnimeInfoChar from "./info/characters";
 import AnimeInforRelate from "./info/relateds";
 import AnimeInfoAbout from "./info/about";
 
-export default function AboutTab(props:any){
+export default function AboutTab(props:{AnilistInfo: any, Aniid: any, EpisodeData: any}) {
+    const episodesdata = props.EpisodeData;
     const AnilistInfo = props.AnilistInfo;
     const ani_id = props.Aniid;
     return(

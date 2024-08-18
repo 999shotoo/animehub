@@ -10,6 +10,24 @@ export async function FetchTrendingAnime(per_page: number){
     return data;
 }
 
+export const FetchTopAnime = async (count:number) => {
+    const data = await fetch(`${process.env.AnimeApi_1}/meta/anilist/advanced-search?sort=["SCORE_DESC"]&perPage=${count}`, { next: { revalidate: 3600 } })
+    const episodeData = await data.json();
+    return episodeData;
+}
+
+export const FetchNewAnime = async (count: number) => {
+    const data = await fetch(`${process.env.AnimeApi_1}/meta/anilist/advanced-search?type=ANIME&sort=["POPULARITY_DESC"]&status=RELEASING&perPage=${count}`, { next: { revalidate: 3600 } })
+    return await data.json();
+  }
+
+  
+export const FetchGenerAnime = async (genre:string, count: number) => {
+    const data = await fetch(`${process.env.AnimeApi_1}/meta/anilist/advanced-search?sort=["TRENDING_DESC"]&genres=["${genre}"]&page=1&perPage=${count}`)
+    return await data.json();
+  }
+  
+
 export async function FetchInfoAnime(id: string){
     const response = await fetch(`${process.env.AnimeApi_1}/meta/anilist/data/${id}?provider=zoro`, { next: { revalidate: 3600 } });
     const data = await response.json();

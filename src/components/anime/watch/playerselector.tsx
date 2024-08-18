@@ -5,10 +5,11 @@ import { Button } from "@/components/ui/button";
 import Player1 from './players/player1';
 import Player2 from './players/player2';
 
-export default function PlayerSelector(props: { dubEnabled: boolean; sub: any; dub: any }) {
+
+
+export default function PlayerSelector(props: { dubEnabled: boolean; sub: any; dub: any}) {
   const [dub, setDub] = useState(props.dubEnabled);
   const [server, setServer] = useState('Server 1');
-
   const subSrc = props.sub;
   const dubSrc = props.dub;
   let iframe;
@@ -39,10 +40,9 @@ export default function PlayerSelector(props: { dubEnabled: boolean; sub: any; d
   const handleServerChange = (value: string) => {
     setServer(value);
   };
-
   return (
-    <div className="relative w-full min-h-screen">
-      <div className="absolute top-4 right-4 z-10 flex items-center gap-4">
+    <div className="relative w-full ">
+      <div className="absolute top-4 right-20 z-10 flex items-center gap-4">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="flex items-center gap-2">

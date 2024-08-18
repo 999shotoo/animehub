@@ -1,7 +1,7 @@
 
 
 import TrailerPlayer from "@/components/anime/info/trailerplayer";
-import { FetchInfoAnime, FetchInfoAnimeExtra } from "@/server/anime";
+import { FetchEpisodesAnime, FetchInfoAnime, FetchInfoAnimeExtra } from "@/server/anime";
 import AnimeInfoEps from "@/components/anime/info/episodes";
 import { Suspense } from "react";
 import AboutTab from "@/components/anime/abouttab";
@@ -11,6 +11,7 @@ export default async function Info({ params }: any) {
     const AnilistInfo = await FetchInfoAnime(ani_id);
     const mal_id = AnilistInfo.malId;
     const MalInfo = await FetchInfoAnimeExtra(mal_id);
+    const EpisodesData = await FetchEpisodesAnime(ani_id);
     return (
         <>
             <main className="md:px-20 md:py-4">
@@ -47,7 +48,7 @@ export default async function Info({ params }: any) {
                         </div>
                     </div>
                     <div className="grid gap-6">
-                       <AboutTab AnilistInfo={AnilistInfo} Aniid={ani_id} />
+                       <AboutTab AnilistInfo={AnilistInfo} Aniid={ani_id} EpisodeData={EpisodesData} />
                     </div>
                 </div>
             </main>

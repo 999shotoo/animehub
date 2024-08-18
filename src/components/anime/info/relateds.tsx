@@ -1,4 +1,5 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function AnimeInforRelate(props: any){
@@ -11,7 +12,7 @@ export default function AnimeInforRelate(props: any){
                   <Link href={`/anime/info/${relate.id}`} key={index}>
                   <div className="flex items-center gap-4 py-2" key={index}>
                       <div className="flex-shrink-0 w-16 h-24 rounded-md overflow-hidden">
-                          <img
+                          <Image
                               src={relate.image}
                               alt="Related Anime Poster"
                               width={64}

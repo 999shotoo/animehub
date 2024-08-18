@@ -4,7 +4,7 @@ import * as React from "react"
 import Autoplay from "embla-carousel-autoplay"
 import { Button } from "@/components/ui/button";
 import { Plus } from 'lucide-react';
-
+import Image from "next/image";
 import {
     Carousel,
     CarouselContent,
@@ -41,8 +41,9 @@ export function CustomCarousel(data: any) {
                                     </h1>
                                     <p className="mt-4 text-lg text-white sm:text-xl md:text-2xl"
                                         dangerouslySetInnerHTML={{
-                                            __html: popular.description.slice(0, 50) + "...",
-                                        }}>
+                                            __html: popular.description.slice(0, 100) + "...",
+                                        }}
+                                        >
                                     </p>
                                 </div>
                                 <div className="flex gap-4">
