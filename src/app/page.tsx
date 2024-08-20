@@ -10,7 +10,7 @@ export default async function Home() {
   return (
     <>
       <main className="md:px-20 md:py-4">
-        <CustomCarousel data={popularanime} />
+        <CustomCarousel data={popularanime} sectionurl={"anime"} />
         <Trending data={trendinganime} trending_name={"Trending Anime"} trending_url={"anime"} />
         <Trending data={trendingmanga} trending_name={"Trending Manga"} trending_url={"manga"} />
       </main>

@@ -42,7 +42,7 @@ export default function PlayerSelector(props: { dubEnabled: boolean; sub: any; d
   };
   return (
     <div className="relative w-full ">
-      <div className="absolute top-4 right-20 z-10 flex items-center gap-4">
+      <div className="absolute top-4 right-4 z-10 flex items-center gap-4">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="flex items-center gap-2">

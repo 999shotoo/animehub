@@ -10,6 +10,10 @@ const nextConfig = {
             protocol: 'https',
             hostname: 'media.kitsu.app',
           },
+          {
+            protocol: 'https',
+            hostname: 'tenor.com',
+          },
         ],
       },
 };
