@@ -1,6 +1,9 @@
 import GoBackButton from "@/components/button/back";
 import { FetchPagesManga } from "@/server/manga";
 import Image from "next/image";
+
+export const runtime = 'edge';
+
 export default async function Page({ params }: any) {
     const chapter_id = params.chapterid;
     const ChapterData = await FetchPagesManga(chapter_id);

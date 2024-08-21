@@ -6,6 +6,8 @@ import AnimeInfoEps from "@/components/anime/info/episodes";
 import { Suspense } from "react";
 import AboutTab from "@/components/anime/abouttab";
 
+export const runtime = 'edge';
+
 export default async function Info({ params }: any) {
     const ani_id = params.id;
     const AnilistInfo = await FetchInfoAnime(ani_id);

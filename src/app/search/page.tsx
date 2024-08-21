@@ -22,6 +22,9 @@ async function searchAction(formData: FormData) {
     redirect(`/search?query=${query}&type=${type}`)
 }
 
+export const runtime = 'edge';
+
+
 export default async function SearchPage({
     searchParams
 }: {
