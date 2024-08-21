@@ -14,6 +14,10 @@ const nextConfig = {
             protocol: 'https',
             hostname: 'tenor.com',
           },
+          {
+            protocol: 'https',
+            hostname: 'cmdxd98sb0x3yprd.mangadex.network',
+          },
         ],
       },
 };

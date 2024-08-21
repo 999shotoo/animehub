@@ -31,3 +31,8 @@ export async function FetchInfoMangaExtra(id: string){
     const data = await response.json();
     return data;
 }
+
+export const FetchPagesManga = async (chapterId:string) => {
+  const data = await fetch(`${process.env.AnimeApi_1}/meta/anilist-manga/read?chapterId=${chapterId}&provider=mangadex`)
+  return await data.json();
+}

@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
+import { DotPattern } from "@/components/magicui/dot-pattern";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +30,14 @@ export default function RootLayout({
           <Navbar />
           {children}
         </ThemeProvider>
+        <div className=" w-full relative">
+      <DotPattern
+        className={cn(
+          "fixed top-0 left-0 w-full z-[-1]",
+          "[mask-image:radial-gradient(white,transparent)]",
+        )}
+      />
+    </div>
       </body>
     </html>
   );

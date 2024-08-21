@@ -12,14 +12,14 @@ export default function AboutTab(props:{AnilistInfo: any, Aniid: any, ChapterDat
     const ani_id = props.Aniid;
     return(
         <>
-         <Tabs defaultValue="episodes">
+         <Tabs defaultValue="chapters">
                             <TabsList className="grid grid-cols-4 gap-2">
-                                <TabsTrigger value="episodes">Episodes</TabsTrigger>
+                                <TabsTrigger value="chapters">Chapters</TabsTrigger>
                                 <TabsTrigger value="characters">Characters</TabsTrigger>
                                 <TabsTrigger value="about">About</TabsTrigger>
                                 <TabsTrigger value="related">Related</TabsTrigger>
                             </TabsList>
-                            <TabsContent value="episodes">
+                            <TabsContent value="chapters">
                                 <Card>
                                     <CardHeader>
                                         <CardTitle>Chapter</CardTitle>

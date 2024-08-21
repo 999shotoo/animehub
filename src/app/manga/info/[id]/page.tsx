@@ -1,6 +1,7 @@
 
 
 import AboutTab from "@/components/manga/info/abouttab";
+import TrailerPlayer from "@/components/manga/info/trailerplayer";
 import { FetchInfoManga, FetchInfoMangaExtra } from "@/server/manga";
 import Image from "next/image";
 
@@ -12,7 +13,7 @@ export default async function Info({ params }: any) {
             <main className="md:px-20 md:py-4">
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-6 md:pt-10">
                     <div className="relative">
-                        <div className="aspect-video rounded-lg overflow-hidden hidden md:block">
+                        <div className="aspect-video rounded-lg overflow-hidden block md:hidden">
                             <Image
                                 src={AnilistInfo.cover}
                                 alt="Video not available"
@@ -21,6 +22,9 @@ export default async function Info({ params }: any) {
                                 className="rounded-lg"
                                 style={{ aspectRatio: "7/4", objectFit: "cover" }}
                             />
+                        </div>
+                        <div className="aspect-video rounded-lg overflow-hidden hidden md:block">
+                            <TrailerPlayer url={AnilistInfo.trailer?.id || ""} image={AnilistInfo.cover} />
                         </div>
                         <div className="absolute bottom-4 left-4 bg-background/50 backdrop-blur-sm rounded-lg p-3 flex items-center gap-3">
                             <img

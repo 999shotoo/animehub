@@ -1,17 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { JSDOM } from 'jsdom';
-import { title } from 'process';
 
 export async function GET(req: NextRequest) {
+  const ress = await fetch("https://hianime.to/home");
+  const html = await ress.text();
 
-    const ress = await fetch("https://books.toscrape.com/");
-    const html = await ress.text();
-
-    const dom = new JSDOM(html);
-    const document = dom.window.document;
-    const books = Array.from(document.querySelectorAll(".product_pod"));
-    const data = books.map((book) => ({
-       title: book.querySelector("h3 a")?.getAttribute("title"),
-    }));
-    return NextResponse.json({data});
+  const dom = new JSDOM(html);
+  const document = dom.window.document;
+  const swiperSlides = Array.from(document.querySelectorAll(".swiper-slide.item-qtip"));
+  const data = swiperSlides.map((slide) => ({
+    id: slide.querySelector("a")?.getAttribute("href")?.split("/").pop(),
+    title: slide.querySelector(".film-title")?.textContent,
+    image: slide.querySelector("img")?.getAttribute("data-src"),
+  }));
+  return NextResponse.json({ data });
 }
