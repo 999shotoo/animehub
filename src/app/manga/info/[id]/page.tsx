@@ -5,8 +5,6 @@ import TrailerPlayer from "@/components/manga/info/trailerplayer";
 import { FetchInfoManga, FetchInfoMangaExtra } from "@/server/manga";
 import Image from "next/image";
 
-export const runtime = 'edge';
-
 export default async function Info({ params }: any) {
     const ani_id = params.id;
     const AnilistInfo = await FetchInfoManga(ani_id);

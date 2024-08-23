@@ -2,8 +2,6 @@ import { FetchEpisodesSrcAnime } from "@/server/anime";
 import PlayerSelector from "@/components/anime/watch/playerselector";
 import GoBackButton from "@/components/button/back";
 
-export const runtime = 'edge';
-
 export default async function Info({ params, searchParams }: any) {
     const id = params.id;
     const ep = searchParams.ep;
