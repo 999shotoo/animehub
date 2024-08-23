@@ -15,7 +15,7 @@ export default function Cardsection(props: { Fetchdata: any, SectionText: string
                         {data.map((data: any, index: any) => (
                             <div key={index} className="group relative rounded-lg overflow-hidden">
                                 <Link href={`/manga/info/${data.id}`} className="block" prefetch={false}>
-                                    <Image
+                                    <img
                                         src={data.image}
                                         width={300}
                                         height={400}

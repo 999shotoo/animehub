@@ -17,6 +17,16 @@ export default async function Info({ params }: any) {
             <main className="md:px-20 md:py-4">
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-6 md:pt-10">
                     <div className="relative">
+                    <div className="aspect-video rounded-lg overflow-hidden block md:hidden">
+                            <img
+                                src={AnilistInfo.cover}
+                                alt="Video not available"
+                                width={1920}
+                                height={1080}
+                                className="rounded-lg"
+                                style={{ aspectRatio: "7/4", objectFit: "cover" }}
+                            />
+                        </div>
                         <div className="aspect-video rounded-lg overflow-hidden hidden md:block">
                             <Suspense fallback={<span className="text-center content-center justify-items-center">Loading.....</span>}>
                                 <TrailerPlayer url={`${MalInfo.data?.trailer.url}`} image={`${AnilistInfo.cover}`} />

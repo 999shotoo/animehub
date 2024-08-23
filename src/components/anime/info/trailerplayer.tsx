@@ -22,7 +22,7 @@ const TrailerPlayer = ({ url, image }: any) => {
       {videoValid ? (
         <ReactPlayer url={url} playing={playVideo} loop={true} controls={true} volume={0.1} width="100%" height="100%" onError={handleError} />
       ) : (
-        <Image
+        <img
           src={image}
           alt="Video not available"
           width={1920}

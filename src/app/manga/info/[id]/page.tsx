@@ -14,7 +14,7 @@ export default async function Info({ params }: any) {
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-6 md:pt-10">
                     <div className="relative">
                         <div className="aspect-video rounded-lg overflow-hidden block md:hidden">
-                            <Image
+                            <img
                                 src={AnilistInfo.cover}
                                 alt="Video not available"
                                 width={1920}

@@ -12,7 +12,7 @@ export default function AnimeInforRelate(props: any){
                   <Link href={`/anime/info/${relate.id}`} key={index}>
                   <div className="flex items-center gap-4 py-2" key={index}>
                       <div className="flex-shrink-0 w-16 h-24 rounded-md overflow-hidden">
-                          <Image
+                          <img
                               src={relate.image}
                               alt="Related Anime Poster"
                               width={64}

@@ -64,7 +64,7 @@ export default async function SearchPage({
                     {searchResults.results.map((item: any, index: any) => (
                         <div key={index} className="group relative rounded-lg overflow-hidden">
                             <Link href={`/${searchParams.type || "anime"}/info/${item.id}`} className="block" prefetch={false}>
-                                <Image
+                                <img
                                     src={item.image}
                                     width={300}
                                     height={400}
@@ -73,11 +73,11 @@ export default async function SearchPage({
                                 />
                                 <div className="mt-2">
                                     <h3 className="text-base font-semibold group-hover:underline">{item.title.english}</h3>
-                                    <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2"
+                                    {/* <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2"
                                         dangerouslySetInnerHTML={{
-                                            __html: item.description.slice(0, 50) + "...",
+                                            __html: item.description.slice(0, 50) + "..." || "",
                                         }}>
-                                    </p>
+                                    </p> */}
                                 </div>
                             </Link>
                         </div>
