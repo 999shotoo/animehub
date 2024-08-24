@@ -5,6 +5,13 @@ import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { DotPattern } from "@/components/magicui/dot-pattern";
 import { cn } from "@/lib/utils";
+import {DiscordSDK} from '@discord/embedded-app-sdk';
+
+const discordSdk = new DiscordSDK("1276947303592230983");
+
+async function setupdiscordsdk(){
+  await discordSdk.ready();
+}
 
 const inter = Inter({ subsets: ["latin"] });
 
