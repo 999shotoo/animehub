@@ -14,7 +14,7 @@ export default async function Page({ params }: any) {
             </div>
             {ChapterData.map((page: any) => (
                 <div className="flex justify-center" key={page.page}>
-                    <Image
+                    <img
                         src={page.img}
                         alt="page"
                         className="object-cover w-[80vh]"
