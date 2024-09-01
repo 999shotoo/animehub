@@ -41,13 +41,13 @@ export async function FetchInfoAnimeExtra(id: string){
 }
 
 export async function FetchEpisodesAnime(id: string){
-    const response = await fetch(`${process.env.AnimeApi_1}/meta/anilist/episodes/${id}?provider=zoro`, { next: { revalidate: 3600 } });
+    const response = await fetch(`${process.env.AnimeApi_1}/meta/anilist/episodes/${id}`, { next: { revalidate: 3600 } });
     const data = await response.json();
     return data;
 }
 
-export async function FetchEpisodesSrcAnime(id: string, ep: string, category: string){
-    const response = await fetch(`${process.env.AnimeApi_2}/anime/episode-srcs?id=${id}?ep=${ep}&&category=${category}`, { next: { revalidate: 3600 } });
+export async function FetchEpisodesSrcAnime(episodeId: string){
+    const response = await fetch(`${process.env.AnimeApi_1}/anime/gogoanime/watch/${episodeId}`, { next: { revalidate: 3600 } });
     const data = await response.json();
     return { data, status: response.status };
 }

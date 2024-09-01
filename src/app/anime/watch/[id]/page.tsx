@@ -3,12 +3,17 @@ import PlayerSelector from "@/components/anime/watch/playerselector";
 import GoBackButton from "@/components/button/back";
 
 export default async function Info({ params, searchParams }: any) {
-    const id = params.id;
-    const ep = searchParams.ep;
-    const AnimeSrcSub = await FetchEpisodesSrcAnime(id, ep, "sub");
-    const AnimeSrcDub = await FetchEpisodesSrcAnime(id, ep, "dub");
+    const episodeid = params.id;
+    const episodeParts = episodeid.split('-');
+    const episodeIndex = episodeParts.indexOf('episode');
+    if (episodeIndex !== -1) {
+        episodeParts.splice(episodeIndex, 0, 'dub');
+      }
+    const dubEpisode = episodeParts.join('-');
+    const AnimeSrcSub = await FetchEpisodesSrcAnime(episodeid);
+    const AnimeSrcDub = await FetchEpisodesSrcAnime(dubEpisode);
     let dubEnabled = true;
-    if (AnimeSrcDub.status === 500) {
+    if (AnimeSrcDub.status === 404) {
         dubEnabled = false;
     }
     return (

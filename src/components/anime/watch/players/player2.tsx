@@ -5,22 +5,12 @@ import { PlyrLayout, plyrLayoutIcons } from '@vidstack/react/player/layouts/plyr
 
 export default function Player2(props: any) {
     const data = props.data;
-    const url = data.sources[0].url;
-    const thumbnail = data.tracks.find((tracks: any) => tracks.kind === 'thumbnails');
-    const captions = data.tracks.filter((track: any) => track.kind === 'captions');
+    const url = data.sources.find((sources: any) => sources.quality === 'default');
     return (
         <>
-            <MediaPlayer className='h-[90vh] mt-5 md:mt-0 md:h-[100vh]' src={url}>
+            <MediaPlayer className='h-[90vh] mt-5 md:mt-0 md:h-[100vh]' src={url.url}>
                 <MediaProvider />
-                {captions.map((track: any, index: any) => (
-                <Track
-                    key={index}
-                    src={track.file}
-                    kind={track.kind}
-                    label={track.label}
-                />
-                ))}
-                <PlyrLayout thumbnails={thumbnail.file} icons={plyrLayoutIcons} />
+                <PlyrLayout icons={plyrLayoutIcons} />
             </MediaPlayer>
         </>
     )

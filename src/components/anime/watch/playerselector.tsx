@@ -4,10 +4,11 @@ import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLab
 import { Button } from "@/components/ui/button";
 import Player1 from './players/player1';
 import Player2 from './players/player2';
+import Link from 'next/link';
 
 
 
-export default function PlayerSelector(props: { dubEnabled: boolean; sub: any; dub: any}) {
+export default function PlayerSelector(props: { dubEnabled: boolean; sub: any; dub: any }) {
   const [dub, setDub] = useState(props.dubEnabled);
   const [server, setServer] = useState('Server 1');
   const subSrc = props.sub;
@@ -74,6 +75,12 @@ export default function PlayerSelector(props: { dubEnabled: boolean; sub: any; d
             <DropdownMenuItem onClick={() => handleServerChange('Server 3')}>Server 3</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+        <Link href={dub ? dubSrc.download : subSrc.download}>
+          <Button>
+            Download
+          </Button>
+        </Link>
+
       </div>
       {iframe}
     </div>

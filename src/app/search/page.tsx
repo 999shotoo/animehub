@@ -33,7 +33,7 @@ export default async function SearchPage({
 
     const searchResults = await FetchSearch(query, type, '16');
     return (
-        <div className="container mx-auto py-4 md:py-12 px-2">
+        <div className="py-4 md:py-12 md:px-20 px-4">
             <form action={searchAction} className="space-y-4">
                 <div className="flex space-x-2">
                     <Input
