@@ -27,7 +27,7 @@ export const FetchInfoManga = async (id: number) => {
 };
 
 export async function FetchInfoMangaExtra(id: string){
-    const response = await fetch(`${process.env.AnimeApi_3}/v4/manga/${id}/full`, { next: { revalidate: 3600 } });
+    const response = await fetch(`https://api.jikan.moe/v4/manga/${id}/full`, { next: { revalidate: 3600 } });
     const data = await response.json();
     return data;
 }
