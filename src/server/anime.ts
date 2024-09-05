@@ -1,7 +1,7 @@
 export async function FetchPopularAnime(){
-    // const response = await fetch(`${process.env.SITE_URL}/api/anime/popular`, { next: { revalidate: 3600 } });
-    // const data = await response.json();
-    return 0;
+    const response = await fetch(`https://${process.env.SITE_URL}/api/anime/popular`, { next: { revalidate: 3600 } });
+    const data = await response.json();
+    return data;
 }
 
 export async function FetchTrendingAnime(per_page: number){
