@@ -5,19 +5,20 @@ import { Button } from "@/components/ui/button";
 import Player1 from './players/player1';
 import Player2 from './players/player2';
 import Link from 'next/link';
+import { Download } from 'lucide-react';
 
 export default function PlayerSelector(props: { dubEnabled: boolean; sub: any; dub: any }) {
   const [dub, setDub] = useState(props.dubEnabled);
-  const [server, setServer] = useState('Server 1');
+  const [server, setServer] = useState('HD-1 (no ads)');
   const subSrc = props.sub;
   const dubSrc = props.dub;
   let iframe;
 
-  if (server === 'Server 1') {
+  if (server === 'HD-1 (no ads)') {
     iframe = (
       <Player1 data={dub ? dubSrc : subSrc} />
     );
-  } else if (server === 'Server 2') {
+  } else if (server === 'HD-2 (no ads)') {
     iframe = (
       <Player2 data={dub ? dubSrc : subSrc} />
     );
@@ -26,13 +27,15 @@ export default function PlayerSelector(props: { dubEnabled: boolean; sub: any; d
     const embed = embeds.find((embed: { name: string; }) => embed.name === server);
     if (embed) {
       iframe = (
-        <iframe
-          src={embed.url}
-          className="w-full h-full"
-          frameBorder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
+        <div className="flex justify-center items-center h-[90vh] md:h-full ">
+          <iframe
+            src={embed.url}
+            frameBorder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full md:w-4/5 h-4/5 md:h-full border-none rounded-none mt-10 bg-black"
+          />
+        </div>
       );
     }
   }
@@ -73,21 +76,22 @@ export default function PlayerSelector(props: { dubEnabled: boolean; sub: any; d
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Select Server</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => handleServerChange('Server 1')}>HD-1 (no ads)</DropdownMenuItem>
-            <DropdownMenuItem onClick={() => handleServerChange('Server 2')}>HD-2 (no ads)</DropdownMenuItem>
-            {(dub ? dubSrc.embeds : subSrc.embeds).map((embed: any)=> (
+            <DropdownMenuItem onClick={() => handleServerChange('HD-1 (no ads)')}>HD-1 (no ads)</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => handleServerChange('HD-2 (no ads)')}>HD-2 (no ads)</DropdownMenuItem>
+            {(dub ? dubSrc.embeds : subSrc.embeds).map((embed: any) => (
               <DropdownMenuItem key={embed.name} onClick={() => handleServerChange(embed.name)}>{embed.name}</DropdownMenuItem>
             ))}
           </DropdownMenuContent>
         </DropdownMenu>
-        <Link href={dub ? dubSrc.download : subSrc.download} target="_blank" >
-          <Button>
-            Download
-          </Button>
-        </Link>
-
       </div>
       {iframe}
+      <div className="absolute top-16 right-4 z-10 flex items-center gap-4">
+        <Link href={dub ? dubSrc.download : subSrc.download} target="_blank" >
+          <Button>
+            <Download />
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 }

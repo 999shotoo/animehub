@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { DotPattern } from "@/components/magicui/dot-pattern";
 import { cn } from "@/lib/utils";
+import GoBackButton from "@/components/button/back";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -32,13 +33,13 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
         <div className=" w-full relative">
-      <DotPattern
-        className={cn(
-          "fixed top-0 left-0 w-full z-[-1]",
-          "[mask-image:radial-gradient(white,transparent)]",
-        )}
-      />
-    </div>
+          <DotPattern
+            className={cn(
+              "fixed top-0 left-0 w-full z-[-1]",
+              "[mask-image:radial-gradient(white,transparent)]",
+            )}
+          />
+        </div>
       </body>
     </html>
   );

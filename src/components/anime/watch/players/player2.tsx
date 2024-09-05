@@ -8,10 +8,12 @@ export default function Player2(props: any) {
     const url = data.sources.find((sources: any) => sources.quality === 'default');
     return (
         <>
-            <MediaPlayer className='h-[90vh] mt-5 md:mt-0 md:h-[100vh]' src={url.url}>
+           <div className="flex justify-center items-center h-[90vh] md:h-full">
+            <MediaPlayer  className='h-[40vh] md:h-[100vh] w-full md:w-4/5' src={url.url}>
                 <MediaProvider />
                 <PlyrLayout icons={plyrLayoutIcons} />
             </MediaPlayer>
+            </div>
         </>
     )
 }

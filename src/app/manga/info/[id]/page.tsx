@@ -1,5 +1,6 @@
 
 
+import GoBackButton from "@/components/button/back";
 import AboutTab from "@/components/manga/info/abouttab";
 import TrailerPlayer from "@/components/manga/info/trailerplayer";
 import { FetchInfoManga, FetchInfoMangaExtra } from "@/server/manga";
@@ -10,6 +11,7 @@ export default async function Info({ params }: any) {
     const AnilistInfo = await FetchInfoManga(ani_id);
     return (
         <>
+                        <GoBackButton/>
             <main className="md:px-20 md:py-4">
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-6 md:pt-10">
                     <div className="relative">

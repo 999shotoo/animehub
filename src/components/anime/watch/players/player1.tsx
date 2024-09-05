@@ -9,10 +9,15 @@ export default function Player1(props: any) {
     const url = data.sources.find((sources: any) => sources.quality === 'default');
     return (
         <>
-            <MediaPlayer src={url.url} className='h-[90vh] mt-8 md:mt-0 md:h-[100vh]'>
-                <MediaProvider />
-                <DefaultVideoLayout icons={defaultLayoutIcons} />
-            </MediaPlayer>
+            <div className="flex justify-center items-center h-[90vh] md:h-full">
+                <MediaPlayer
+                    src={url.url}
+                    className='h-[40vh] md:h-[100vh] w-full md:w-4/5'
+                >
+                    <MediaProvider />
+                    <DefaultVideoLayout icons={defaultLayoutIcons} />
+                </MediaPlayer>
+            </div>
         </>
     )
 }

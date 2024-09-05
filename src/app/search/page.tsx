@@ -12,6 +12,7 @@ import { FetchSearch } from "@/server/search"
 import { redirect } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
+import GoBackButton from "@/components/button/back"
 
 async function searchAction(formData: FormData) {
     'use server'
@@ -34,6 +35,7 @@ export default async function SearchPage({
     const searchResults = await FetchSearch(query, type, '16');
     return (
         <>
+            <GoBackButton />
             <div className="py-4 md:py-12 md:px-20 px-4">
                 <form action={searchAction} className="space-y-4">
                     <div className="flex space-x-2">

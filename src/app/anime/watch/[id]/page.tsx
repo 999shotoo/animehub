@@ -18,11 +18,7 @@ export default async function Info({ params, searchParams }: any) {
     }
     return (
         <>
-            <div className="relative">
-                <div className="absolute top-4 left-4 z-10 flex items-center gap-4">
-                    <GoBackButton />
-                </div>
-            </div>
+        <GoBackButton/>
             <PlayerSelector sub={AnimeSrcSub.data} dub={AnimeSrcDub.data} dubEnabled={dubEnabled} />
         </>
     );
