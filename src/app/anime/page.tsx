@@ -9,12 +9,12 @@ export default async function Page(){
     const newanime = await FetchNewAnime(24);
    return(
     <>
-          <main className="md:px-20 md:py-4">
+          {/* <main className="md:px-20 md:py-4">
         <CustomCarousel data={popularanime} sectionurl={"anime"} />
         <Cardsection Fetchdata={topanime} SectionText={`Top Anime`} />
         <Cardsection Fetchdata={trendinganime} SectionText={`Trending Anime`} />
         <Cardsection Fetchdata={newanime} SectionText={`New Episodes`} />
-        </main>
+        </main> */}
     </>
    )
 }

@@ -12,18 +12,18 @@ export default async function Info({ params, searchParams }: any) {
     const dubEpisode = episodeParts.join('-');
     const AnimeSrcSub = await FetchEpisodesSrcAnime(episodeid);
     const AnimeSrcDub = await FetchEpisodesSrcAnime(dubEpisode);
-    let dubEnabled = true;
-    if (AnimeSrcDub.status === 404) {
-        dubEnabled = false;
-    }
+    // let dubEnabled = true;
+    // if (AnimeSrcDub.status === 404) {
+    //     dubEnabled = false;
+    // }
     return (
         <>
-            <div className="relative">
+            {/* <div className="relative">
                 <div className="absolute top-4 left-4 z-10 flex items-center gap-4">
                     <GoBackButton />
                 </div>
             </div>
-            <PlayerSelector sub={AnimeSrcSub.data} dub={AnimeSrcDub.data} dubEnabled={dubEnabled} />
+            <PlayerSelector sub={AnimeSrcSub.data} dub={AnimeSrcDub.data} dubEnabled={dubEnabled} /> */}
         </>
     );
 }

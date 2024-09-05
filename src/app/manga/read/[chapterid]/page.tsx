@@ -7,7 +7,7 @@ export default async function Page({ params }: any) {
     const ChapterData = await FetchPagesManga(chapter_id);
     return (
         <>
-            <div className="relative">
+            {/* <div className="relative">
             <div className="fixed top-4 left-4 z-10 flex items-center gap-4">
   <GoBackButton />
 </div>
@@ -22,7 +22,7 @@ export default async function Page({ params }: any) {
                         height={1920}
                     />
                 </div>
-            ))}
+            ))} */}
         </>
     )
 }

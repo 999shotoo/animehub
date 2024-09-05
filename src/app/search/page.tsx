@@ -33,7 +33,8 @@ export default async function SearchPage({
 
     const searchResults = await FetchSearch(query, type, '16');
     return (
-        <div className="py-4 md:py-12 md:px-20 px-4">
+        <>
+        {/* <div className="py-4 md:py-12 md:px-20 px-4">
             <form action={searchAction} className="space-y-4">
                 <div className="flex space-x-2">
                     <Input
@@ -73,18 +74,19 @@ export default async function SearchPage({
                                 />
                                 <div className="mt-2">
                                     <h3 className="text-base font-semibold group-hover:underline">{item.title.english}</h3>
-                                    {/* <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2"
+                                    <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2"
                                         dangerouslySetInnerHTML={{
                                             __html: item.description.slice(0, 50) + "..." || "",
                                         }}>
-                                    </p> */}
+                                    </p>
                                 </div>
                             </Link>
                         </div>
                     ))}
                 </div>
             </div>
-        </div>
+        </div> */}
+        </>
     )
 }
 

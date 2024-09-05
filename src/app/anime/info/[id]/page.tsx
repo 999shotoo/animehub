@@ -9,12 +9,12 @@ import AboutTab from "@/components/anime/abouttab";
 export default async function Info({ params }: any) {
     const ani_id = params.id;
     const AnilistInfo = await FetchInfoAnime(ani_id);
-    const mal_id = AnilistInfo.malId;
-    const MalInfo = await FetchInfoAnimeExtra(mal_id);
-    const EpisodesData = await FetchEpisodesAnime(ani_id);
+    // const mal_id = AnilistInfo.malId;
+    // const MalInfo = await FetchInfoAnimeExtra(mal_id);
+    // const EpisodesData = await FetchEpisodesAnime(ani_id);
     return (
         <>
-            <main className="md:px-20 md:py-4">
+            {/* <main className="md:px-20 md:py-4">
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-6 md:pt-10">
                     <div className="relative">
                     <div className="aspect-video rounded-lg overflow-hidden block md:hidden">
@@ -51,7 +51,7 @@ export default async function Info({ params }: any) {
                        <AboutTab AnilistInfo={AnilistInfo} Aniid={ani_id} EpisodeData={EpisodesData} />
                     </div>
                 </div>
-            </main>
+            </main> */}
         </>
     );
 }
