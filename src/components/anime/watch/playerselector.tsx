@@ -6,14 +6,13 @@ import Player1 from './players/player1';
 import Player2 from './players/player2';
 import Link from 'next/link';
 
-
-
 export default function PlayerSelector(props: { dubEnabled: boolean; sub: any; dub: any }) {
   const [dub, setDub] = useState(props.dubEnabled);
   const [server, setServer] = useState('Server 1');
   const subSrc = props.sub;
   const dubSrc = props.dub;
   let iframe;
+
   if (server === 'Server 1') {
     iframe = (
       <Player1 data={dub ? dubSrc : subSrc} />
@@ -22,16 +21,20 @@ export default function PlayerSelector(props: { dubEnabled: boolean; sub: any; d
     iframe = (
       <Player2 data={dub ? dubSrc : subSrc} />
     );
-  } else if (server === 'Server 3') {
-    iframe = (
-      <iframe
-        src={dub ? dubSrc[server] : subSrc[server]}
-        className="w-full h-full"
-        frameBorder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      />
-    );
+  } else {
+    const embeds = dub ? dubSrc.embeds : subSrc.embeds;
+    const embed = embeds.find((embed: { name: string; }) => embed.name === server);
+    if (embed) {
+      iframe = (
+        <iframe
+          src={embed.url}
+          className="w-full h-full"
+          frameBorder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      );
+    }
   }
 
   const handleDubChange = (value: boolean) => {
@@ -70,12 +73,14 @@ export default function PlayerSelector(props: { dubEnabled: boolean; sub: any; d
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Select Server</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => handleServerChange('Server 1')}>Server 1</DropdownMenuItem>
-            <DropdownMenuItem onClick={() => handleServerChange('Server 2')}>Server 2</DropdownMenuItem>
-            <DropdownMenuItem onClick={() => handleServerChange('Server 3')}>Server 3</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => handleServerChange('Server 1')}>HD-1 (no ads)</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => handleServerChange('Server 2')}>HD-2 (no ads)</DropdownMenuItem>
+            {(dub ? dubSrc.embeds : subSrc.embeds).map((embed: any)=> (
+              <DropdownMenuItem key={embed.name} onClick={() => handleServerChange(embed.name)}>{embed.name}</DropdownMenuItem>
+            ))}
           </DropdownMenuContent>
         </DropdownMenu>
-        <Link href={dub ? dubSrc.download : subSrc.download}>
+        <Link href={dub ? dubSrc.download : subSrc.download} target="_blank" >
           <Button>
             Download
           </Button>

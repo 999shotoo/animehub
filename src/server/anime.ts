@@ -23,7 +23,7 @@ export const FetchNewAnime = async (count: number) => {
 
   
 export const FetchGenerAnime = async (genre:string, count: number) => {
-    const data = await fetch(`${process.env.SITE_URL}/api/search/advance?sort=["TRENDING_DESC"]&genres=["${genre}"]&page=1&perPage=${count}`)
+    const data = await fetch(`${process.env.SITE_URL}/api/anime/gener/${genre}?page=1&perPage=${count}`)
     return await data.json();
   }
   
@@ -35,19 +35,19 @@ export async function FetchInfoAnime(id: string){
 }
 
 export async function FetchInfoAnimeExtra(id: string){
-    const response = await fetch(`${process.env.AnimeApi_3}/v4/anime/${id}/full`, { next: { revalidate: 3600 } });
+    const response = await fetch(`https://api.jikan.moe/v4/anime/${id}/full`, { next: { revalidate: 3600 } });
     const data = await response.json();
     return data;
 }
 
 export async function FetchEpisodesAnime(id: string){
-    const response = await fetch(`${process.env.AnimeApi_1}/meta/anilist/episodes/${id}`, { next: { revalidate: 3600 } });
+    const response = await fetch(`${process.env.SITE_URL}/api/anime/episodes/${id}`, { next: { revalidate: 3600 } });
     const data = await response.json();
     return data;
 }
 
 export async function FetchEpisodesSrcAnime(episodeId: string){
-    const response = await fetch(`${process.env.AnimeApi_1}/anime/gogoanime/watch/${episodeId}`, { next: { revalidate: 3600 } });
+    const response = await fetch(`${process.env.SITE_URL}/api/anime/watch/${episodeId}`, { next: { revalidate: 3600 } });
     const data = await response.json();
     return { data, status: response.status };
 }
