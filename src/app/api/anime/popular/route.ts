@@ -5,14 +5,7 @@ const anilist = new META.Anilist();
 
 export async function GET(req: NextRequest, res: NextResponse) {
   try {
-    const { pathname } = req.nextUrl;
-    const id = pathname.split('/').pop();
-
-    if (id === undefined) {
-      return NextResponse.json(new Error('Invalid id parameter'), {status:400}); 
-    }
-
-    const data = await anilist.fetchAnilistInfoById(id);
+    const data = await anilist.fetchPopularAnime();
 
     if (!data) {
       return NextResponse.json('Data not found');
