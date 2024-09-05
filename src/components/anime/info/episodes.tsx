@@ -8,7 +8,7 @@ export default async function AnimeInfoEps(props:{id: any}) {
     const episodes = await FetchEpisodesAnime(props.id);
     return (
         <>
-            <div className="grid gap-4">
+            {/* <div className="grid gap-4">
             <ScrollArea className="h-[40vh] md:h-[40vh] lg:h-[60vh] w-full rounded-md">
                 {episodes.map((episode: any, index: any) => (
                     <Link href={`/anime/watch/${(episode.id)}`} key={index}>
@@ -31,7 +31,7 @@ export default async function AnimeInfoEps(props:{id: any}) {
                     </Link>
                 ))}
             </ScrollArea>
-            </div>
+            </div> */}
         </>
     )
 }
