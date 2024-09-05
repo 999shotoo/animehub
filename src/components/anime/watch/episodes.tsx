@@ -5,10 +5,10 @@ import Link from "next/link";
 
 export default async function AnimeWatchEps(props:{id: any}) {
     const episodes = await FetchEpisodesAnime(props.id);
-    // if(episodes.message === "Anime not found") return <p>No Episodes Found</p>
+    if(episodes.message === "Anime not found") return <p>No Episodes Found</p>
     return (
         <>
-            {/* <div className="grid gap-4">
+            <div className="grid gap-4">
             <ScrollArea className="h-[95vh] w-full rounded-md">
                 {episodes.map((episode: any, index: any) => (
                     <Link href={`/anime/watch/${EpisodeNumberFormator(episode.id)}`} key={index}>
@@ -31,7 +31,7 @@ export default async function AnimeWatchEps(props:{id: any}) {
                     </Link>
                 ))}
             </ScrollArea>
-            </div> */}
+            </div>
         </>
     )
 }
