@@ -24,10 +24,8 @@ export default function Trending(props: { data: any, trending_name: string, tren
                                     />
                                     <div className="mt-2">
                                         <h3 className="text-base font-semibold group-hover:underline">{trending.title.english}</h3>
-                                        <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2"
-                                            dangerouslySetInnerHTML={{
-                                                __html: trending.description.slice(0, 50) + "...",
-                                            }}>
+                                        <p className="text-sm text-gray-500 dark:text-gray-400 truncate overflow-hidden max-w-full">
+                                            {trending.description}
                                         </p>
                                     </div>
                                 </Link>

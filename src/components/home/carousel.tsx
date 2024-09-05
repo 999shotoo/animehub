@@ -41,19 +41,16 @@ export function CustomCarousel(props: { data: any, sectionurl: string }) {
                                     <h1 className="text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl lg:text-6xl">
                                         {popular.title.english}
                                     </h1>
-                                    <p className="mt-4 text-lg text-white sm:text-xl md:text-2xl"
-                                        dangerouslySetInnerHTML={{
-                                            __html: popular.description.slice(0, 100) + "...",
-                                        }}
-                                        >
+                                    <p className="text-sm text-gray-500 dark:text-gray-400 truncate overflow-hidden max-w-full">
+                                        {popular.description}
                                     </p>
                                 </div>
                                 <div className="flex gap-4">
                                     <Link href={`/${props.sectionurl}/info/${popular.id}`}>
-                                    <Button>
-                                        <Plus className="mr-2 h-5 w-5" />
-                                        Watch Now
-                                    </Button>
+                                        <Button>
+                                            <Plus className="mr-2 h-5 w-5" />
+                                            Watch Now
+                                        </Button>
                                     </Link>
                                     <Button variant="outline">
                                         <Plus className="mr-2 h-5 w-5" />

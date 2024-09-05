@@ -34,58 +34,56 @@ export default async function SearchPage({
     const searchResults = await FetchSearch(query, type, '16');
     return (
         <>
-        <div className="py-4 md:py-12 md:px-20 px-4">
-            <form action={searchAction} className="space-y-4">
-                <div className="flex space-x-2">
-                    <Input
-                        type="text"
-                        name="query"
-                        placeholder="Search for anime or manga..."
-                        className="flex-grow"
-                        defaultValue={searchParams.query}
-                    />
-                    <Select name="type" defaultValue={searchParams.type || "anime"}>
-                        <SelectTrigger className="w-[180px]">
-                            <SelectValue placeholder="Select type" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            <SelectItem value="anime">Anime</SelectItem>
-                            <SelectItem value="manga">Manga</SelectItem>
-                        </SelectContent>
-                    </Select>
-                    <Button type="submit">Search</Button>
-                </div>
-            </form>
+            <div className="py-4 md:py-12 md:px-20 px-4">
+                <form action={searchAction} className="space-y-4">
+                    <div className="flex space-x-2">
+                        <Input
+                            type="text"
+                            name="query"
+                            placeholder="Search for anime or manga..."
+                            className="flex-grow"
+                            defaultValue={searchParams.query}
+                        />
+                        <Select name="type" defaultValue={searchParams.type || "anime"}>
+                            <SelectTrigger className="w-[180px]">
+                                <SelectValue placeholder="Select type" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="anime">Anime</SelectItem>
+                                <SelectItem value="manga">Manga</SelectItem>
+                            </SelectContent>
+                        </Select>
+                        <Button type="submit">Search</Button>
+                    </div>
+                </form>
 
-            <div className="mt-8">
-                <h2 className="text-xl font-semibold mb-4">
-                    Search Results for "{query}" ({type})
-                </h2>
-                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 lg:gap-6">
-                    {searchResults.results.map((item: any, index: any) => (
-                        <div key={index} className="group relative rounded-lg overflow-hidden">
-                            <Link href={`/${searchParams.type || "anime"}/info/${item.id}`} className="block" prefetch={false}>
-                                <img
-                                    src={item.image}
-                                    width={300}
-                                    height={400}
-                                    alt="Anime Thumbnail"
-                                    className="w-full h-auto aspect-[3/4] object-cover group-hover:scale-105 transition-transform"
-                                />
-                                <div className="mt-2">
-                                    <h3 className="text-base font-semibold group-hover:underline">{item.title.english}</h3>
-                                    <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2"
-                                        dangerouslySetInnerHTML={{
-                                            __html: item.description.slice(0, 50) + "..." || "",
-                                        }}>
-                                    </p>
-                                </div>
-                            </Link>
-                        </div>
-                    ))}
+                <div className="mt-8">
+                    <h2 className="text-xl font-semibold mb-4">
+                        Search Results for "{query}" ({type})
+                    </h2>
+                    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 lg:gap-6">
+                        {searchResults.results.map((item: any, index: any) => (
+                            <div key={index} className="group relative rounded-lg overflow-hidden">
+                                <Link href={`/${searchParams.type || "anime"}/info/${item.id}`} className="block" prefetch={false}>
+                                    <img
+                                        src={item.image}
+                                        width={300}
+                                        height={400}
+                                        alt="Anime Thumbnail"
+                                        className="w-full h-auto aspect-[3/4] object-cover group-hover:scale-105 transition-transform"
+                                    />
+                                    <div className="mt-2">
+                                        <h3 className="text-base font-semibold group-hover:underline">{item.title.english}</h3>
+                                        <p className="text-sm text-gray-500 dark:text-gray-400 truncate overflow-hidden max-w-full">
+                                            {item.description}
+                                        </p>
+                                    </div>
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
-        </div>
         </>
     )
 }
