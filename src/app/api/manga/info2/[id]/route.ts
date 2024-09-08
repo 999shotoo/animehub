@@ -3,7 +3,7 @@ import { META } from '@consumet/extensions';
 import MangaReader from '@consumet/extensions/dist/providers/manga/mangareader';
 import Mangasee123 from '@consumet/extensions/dist/providers/manga/mangasee123';
 
-const anilist = new META.Anilist.Manga(new Mangasee123);
+const anilist = new META.Anilist.Manga(new MangaReader);
 
 export async function GET(req: NextRequest, res: NextResponse) {
   try {
