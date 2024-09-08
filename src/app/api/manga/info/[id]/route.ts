@@ -12,7 +12,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
       return NextResponse.json(new Error('Invalid id parameter'), {status:400}); 
     }
 
-    const data = await anilist.fetchMangaInfo("30013");
+    const data = (await anilist.fetchMangaInfo("30013")).chapters;
 
     if (!data) {
       return NextResponse.json('Data not found');
