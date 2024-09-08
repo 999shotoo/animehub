@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { META } from '@consumet/extensions';
 import MangaDex from '@consumet/extensions/dist/providers/manga/mangadex';
 
-const anilist = new META.Anilist.Manga();
+const anilist = new META.Anilist.Manga;
 
 export async function GET(req: NextRequest, res: NextResponse) {
   try {
