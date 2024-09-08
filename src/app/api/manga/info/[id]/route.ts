@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { META } from '@consumet/extensions';
 
-const anilist = new META.Anilist.Manga;
+const anilist = new META.Anilist.Manga();
 
 export async function GET(req: NextRequest, res: NextResponse) {
   try {
@@ -12,7 +12,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
       return NextResponse.json(new Error('Invalid id parameter'), {status:400}); 
     }
 
-    const data = await anilist.fetchMangaInfo(id);
+    const data = await anilist.fetchMangaInfo("30013");
 
     if (!data) {
       return NextResponse.json('Data not found');
