@@ -1,4 +1,4 @@
-import { FetchEpisodesSrcAnime } from "@/server/anime";
+import { FetchEpisodesSrcAnime, FetchGOGOAnimeInfo } from "@/server/anime";
 import PlayerSelector from "@/components/anime/watch/playerselector";
 import GoBackButton from "@/components/button/back";
 import type { Metadata, ResolvingMetadata } from 'next'
@@ -8,8 +8,13 @@ export async function generateMetadata(
     { params, searchParams }: any): Promise<Metadata> {
     const episodeid = params.id;
     const id = episodeid.replace(/-episode-\d+$/, '');
+    const Metainfo = await FetchGOGOAnimeInfo(id);
     return {
-      title: id,
+      title: Metainfo.title + ' Episode ' + episodeid.split('-').pop() + ' || AniHub - Watch Anime Free Online',
+      description: Metainfo.description,
+      openGraph: {
+        images: [Metainfo.image],
+      },
     }
   }
 

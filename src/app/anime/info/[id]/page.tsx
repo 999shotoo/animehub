@@ -7,7 +7,21 @@ import { Suspense } from "react";
 import AboutTab from "@/components/anime/abouttab";
 import GoBackButton from "@/components/button/back";
 import Image from "next/image";
+import type { Metadata, ResolvingMetadata } from 'next'
 
+
+export async function generateMetadata(
+    { params, searchParams }: any): Promise<Metadata> {
+    const id = params.id;
+    const Metainfo = await FetchInfoAnime(id);
+    return {
+      title: Metainfo.title.native + ' || AniHub - Watch Anime Free Online' || Metainfo.title.english + ' || AniHub - Watch Anime Free Online',
+      description: Metainfo.description,
+      openGraph: {
+        images: [Metainfo.cover],
+      },
+    }
+  }
 export default async function Info({ params }: any) {
     const ani_id = params.id;
     const AnilistInfo = await FetchInfoAnime(ani_id);

@@ -51,3 +51,9 @@ export async function FetchEpisodesSrcAnime(episodeId: string){
     const data = await response.json();
     return { data, status: response.status };
 }
+
+export async function FetchGOGOAnimeInfo(id: string){
+    const response = await fetch(`${process.env.SITE_URL}/api/anime/gogoinfo/${id}`, { next: { revalidate: 3600 } });
+    const data = await response.json();
+    return data;
+}
