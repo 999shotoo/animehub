@@ -2,6 +2,13 @@ import Cardsection from "@/components/anime/home/cardsections";
 import GoBackButton from "@/components/button/back";
 import { CustomCarousel } from "@/components/home/carousel";
 import { FetchNewAnime, FetchPopularAnime, FetchTopAnime, FetchTrendingAnime } from "@/server/anime";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Anime || AniHub",
+  description: "AniHub is a free anime streaming website where you can watch your favorite anime shows online without any subscription or registration. ",
+};
+
 
 export default async function Page() {
   const popularanime = await FetchPopularAnime();

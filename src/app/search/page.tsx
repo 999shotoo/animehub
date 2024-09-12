@@ -13,7 +13,13 @@ import { redirect } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
 import GoBackButton from "@/components/button/back"
+import { Metadata } from "next"
 
+export const metadata: Metadata = {
+    title: "Search || AniHub",
+    description: "AniHub is a free anime streaming website where you can watch your favorite anime shows online without any subscription or registration. ",
+  };
+  
 async function searchAction(formData: FormData) {
     'use server'
 
