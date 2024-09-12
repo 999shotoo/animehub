@@ -96,9 +96,3 @@ export default async function SearchPage({
     )
 }
 
-export async function generateMetadata() {
-    return {
-        title: 'Anime/Manga Search',
-        description: 'Search for your favorite anime and manga titles',
-    }
-}

@@ -5,7 +5,7 @@ import { FetchNewManga, FetchPopularManga, FetchTopManga, FetchTrendingManga } f
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Manga || AniHub",
+  title: "Manga || AniHub - Watch Anime Free Online",
   description: "AniHub is a free anime streaming website where you can watch your favorite anime shows online without any subscription or registration. ",
 };
 
