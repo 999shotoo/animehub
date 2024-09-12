@@ -15,7 +15,7 @@ export default function Trending(props: { data: any, trending_name: string, tren
                         {trending.map((trending: any, index: any) => (
                             <div key={index} className="group relative rounded-lg overflow-hidden">
                                 <Link href={`/${trending_url}/info/${trending.id}`} className="block" prefetch={false}>
-                                    <img
+                                    <Image
                                         src={trending.image}
                                         width={300}
                                         height={400}

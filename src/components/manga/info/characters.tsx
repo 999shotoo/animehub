@@ -10,7 +10,7 @@ export default function MangaInfoChar(props: any){
             {characters.map((characters: any, index: any) => (
                 <div className="flex items-center gap-4 py-2" key={index}>
                     <div className="flex-shrink-0 w-16 h-16 rounded-full overflow-hidden">
-                        <img
+                        <Image
                             src={characters.image}
                             alt="Character Avatar"
                             width={64}

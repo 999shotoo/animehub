@@ -1,28 +1,32 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { META } from '@consumet/extensions';
-import MangaReader from '@consumet/extensions/dist/providers/manga/mangareader';
-import Mangasee123 from '@consumet/extensions/dist/providers/manga/mangasee123';
 
-const anilist = new META.Anilist.Manga(new Mangasee123);
+import jsdom from 'jsdom';
+import { NextRequest, NextResponse } from 'next/server';
+
+interface Chapter {
+  id: string;
+  title: string;
+  date: string;
+}
 
 export async function GET(req: NextRequest, res: NextResponse) {
-  try {
-    const { pathname } = req.nextUrl;
-    const id = pathname.split('/').pop();
+  const url = 'https://mangasee123.com/manga/Solo-Leveling?LimitChapter=1000';
+  const html = await fetch(url).then((res) => res.text());
+  const { window } = new jsdom.JSDOM(html);
+  const document = window.document;
 
-    if (id === undefined) {
-      return NextResponse.json(new Error('Invalid id parameter'), {status:400}); 
-    }
+  const chapters: Chapter[] = [];
+  document.querySelectorAll('.ChapterLink').forEach((element) => {
+    const id = element.getAttribute('href')?.split('-chapter-')?.[1]?.split('-page-')?.[0] || '';
+    const titleElement = element.querySelector('span');
+    const title = titleElement?.textContent?.trim() || '';
+    const date = element.querySelector('.float-right')?.textContent?.trim() || '';
 
-    const data = (await anilist.fetchMangaInfo("30013")).chapters;
+    chapters.push({
+      id,
+      title,
+      date,
+    });
+  });
 
-    if (!data) {
-      return NextResponse.json('Data not found');
-    }
-
-    return NextResponse.json(data);
-  } catch (error) {
-    console.error(error);
-    return NextResponse.json({error: "Something went wrong"}, {status:500});
-  }
+  return NextResponse.json(chapters);
 }

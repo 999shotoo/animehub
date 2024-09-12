@@ -6,6 +6,7 @@ import AnimeInfoEps from "@/components/anime/info/episodes";
 import { Suspense } from "react";
 import AboutTab from "@/components/anime/abouttab";
 import GoBackButton from "@/components/button/back";
+import Image from "next/image";
 
 export default async function Info({ params }: any) {
     const ani_id = params.id;
@@ -20,7 +21,7 @@ export default async function Info({ params }: any) {
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-6 md:pt-10">
                     <div className="relative">
                     <div className="aspect-video rounded-lg overflow-hidden block md:hidden">
-                            <img
+                            <Image
                                 src={AnilistInfo.cover}
                                 alt="Video not available"
                                 width={1920}
@@ -35,7 +36,7 @@ export default async function Info({ params }: any) {
                             </Suspense>
                         </div>
                         <div className="absolute bottom-4 left-4 bg-background/50 backdrop-blur-sm rounded-lg p-3 flex items-center gap-3">
-                            <img
+                            <Image
                                 src={AnilistInfo.image}
                                 alt="Anime Poster"
                                 width={100}

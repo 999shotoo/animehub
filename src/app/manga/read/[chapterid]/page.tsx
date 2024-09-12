@@ -10,7 +10,7 @@ export default async function Page({ params }: any) {
             <GoBackButton />
             {ChapterData.map((page: any) => (
                 <div className="flex justify-center" key={page.page}>
-                    <img
+                    <Image
                         src={page.img}
                         alt="page"
                         className="object-cover w-[80vh]"

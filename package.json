@@ -23,6 +23,7 @@
     "clsx": "^2.1.1",
     "embla-carousel-autoplay": "^8.1.8",
     "embla-carousel-react": "^8.1.8",
+    "graphql-client": "^1.0.1",
     "hls.js": "^1.5.14",
     "jsdom": "^25.0.0",
     "lucide-react": "^0.427.0",

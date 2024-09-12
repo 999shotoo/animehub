@@ -4,7 +4,7 @@ export default function LoadingPage() {
     return (
         <div className="flex min-h-[100dvh] items-center justify-center bg-background">
         <div className="flex flex-col items-center justify-center space-y-4">
-          <img
+          <Image
             src="https://media1.tenor.com/m/Gv1cMkqev0wAAAAC/anime-confused.gif"
             width={400}
             height={300}

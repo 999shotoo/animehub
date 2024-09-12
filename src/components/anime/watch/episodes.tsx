@@ -1,6 +1,7 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { EpisodeNumberFormator } from "@/hooks/episodenumber";
 import { FetchEpisodesAnime } from "@/server/anime";
+import Image from "next/image";
 import Link from "next/link";
 
 export default async function AnimeWatchEps(props:{id: any}) {
@@ -14,7 +15,7 @@ export default async function AnimeWatchEps(props:{id: any}) {
                     <Link href={`/anime/watch/${EpisodeNumberFormator(episode.id)}`} key={index}>
                     <div className="flex items-center gap-4 py-2">
                         <div className="flex-shrink-0 w-16 h-9 rounded-md overflow-hidden">
-                            <img
+                            <Image
                                 src={episode.image}
                                 alt="Episode Thumbnail"
                                 width={64}

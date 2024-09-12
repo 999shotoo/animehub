@@ -67,7 +67,7 @@ export default async function SearchPage({
                         {searchResults.results.map((item: any, index: any) => (
                             <div key={index} className="group relative rounded-lg overflow-hidden">
                                 <Link href={`/${searchParams.type || "anime"}/info/${item.id}`} className="block" prefetch={false}>
-                                    <img
+                                    <Image
                                         src={item.image}
                                         width={300}
                                         height={400}

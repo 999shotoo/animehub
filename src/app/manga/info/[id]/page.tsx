@@ -16,7 +16,7 @@ export default async function Info({ params }: any) {
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-6 md:pt-10">
                     <div className="relative">
                         <div className="aspect-video rounded-lg overflow-hidden block md:hidden">
-                            <img
+                            <Image
                                 src={AnilistInfo.cover}
                                 alt="Video not available"
                                 width={1920}
@@ -29,7 +29,7 @@ export default async function Info({ params }: any) {
                             <TrailerPlayer url={AnilistInfo.trailer?.id || ""} image={AnilistInfo.cover} />
                         </div>
                         <div className="absolute bottom-4 left-4 bg-background/50 backdrop-blur-sm rounded-lg p-3 flex items-center gap-3">
-                            <img
+                            <Image
                                 src={AnilistInfo.image}
                                 alt="Manga Poster"
                                 width={100}

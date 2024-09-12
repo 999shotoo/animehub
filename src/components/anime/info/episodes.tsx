@@ -14,7 +14,7 @@ export default async function AnimeInfoEps(props:{id: any}) {
                     <Link href={`/anime/watch/${(episode.id)}`} key={index}>
                     <div className="flex items-center gap-4 py-2">
                         <div className="flex-shrink-0 w-16 h-9 rounded-md overflow-hidden">
-                            <img
+                            <Image
                                 src={episode.image}
                                 alt="Episode Thumbnail"
                                 width={64}

@@ -15,7 +15,7 @@ export default async function MangaInfoChapters(props:{chapters: any, mangaposte
                     <Link href={`/manga/read/${chapter.id}`} key={index}>
                     <div className="flex items-center gap-4 py-2">
                         <div className="flex-shrink-0 w-16 h-9 rounded-md overflow-hidden">
-                            <img
+                            <Image
                                 src={poster}
                                 alt="Episode Thumbnail"
                                 width={64}

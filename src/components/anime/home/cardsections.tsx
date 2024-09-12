@@ -15,8 +15,8 @@ export default function Cardsection(props: { Fetchdata: any, SectionText: string
                         {data.map((data: any, index: any) => (
                             <div key={index} className="group relative rounded-lg overflow-hidden">
                                 <Link href={`/anime/info/${data.id}`} className="block" prefetch={false}>
-                                    <img
-                                        src={data.image}
+                                    <Image
+                                        src={"https://zjcdn.mangahere.org/store/manga/106/98-1125.0/compressed/m20240906_103524_363.jpg"}
                                         width={300}
                                         height={400}
                                         alt="Anime Thumbnail"
