@@ -18,7 +18,7 @@ export default function Cardsection(props: { Fetchdata: any, SectionText: string
                                     <Image
                                         src={data.image}
                                         placeholder="blur"
-                                        blurDataURL="data:hash"
+                                        blurDataURL="data:..."
                                         width={300}
                                         height={400}
                                         alt="Anime Thumbnail"
