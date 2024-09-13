@@ -67,7 +67,6 @@ export default async function SearchPage({
                                         src={item.image}
                                         width={300}
                                         height={400}
-                                         blurDataURL="/blur.jpg"
                                         alt="Anime Thumbnail"
                                         className="w-full h-auto aspect-[3/4] object-cover group-hover:scale-105 transition-transform"
                                     />
