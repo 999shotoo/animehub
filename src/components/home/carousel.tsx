@@ -14,8 +14,7 @@ import {
 } from "@/components/ui/carousel"
 import Link from "next/link";
 
-export function CustomCarousel(props: { data: any, sectionurl: string }) {
-    console.log(props.sectionurl)
+export function CustomCarousel(props: { data: any}) {
     const plugin = React.useRef(
         Autoplay({ delay: 2000, stopOnInteraction: true })
     )
@@ -46,7 +45,7 @@ export function CustomCarousel(props: { data: any, sectionurl: string }) {
                                     </p>
                                 </div>
                                 <div className="flex gap-4">
-                                    <Link href={`/${props.sectionurl}/info/${popular.id}`}>
+                                    <Link href={`/info/${popular.id}`}>
                                         <Button>
                                             <Plus className="mr-2 h-5 w-5" />
                                             Watch Now

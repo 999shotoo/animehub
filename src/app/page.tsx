@@ -1,8 +1,9 @@
+import Cardsection from "@/components/home/cardsections";
 import { CustomCarousel } from "@/components/home/carousel";
-import Trending from "@/components/home/trending";
-import { FetchPopularAnime, FetchTrendingAnime } from "@/server/anime";
-import { FetchTrendingManga } from "@/server/manga";
-import type { Metadata } from 'next'
+import LoadingPage from "@/components/loading";
+import { FetchNewAnime, FetchPopularAnime, FetchTopAnime, FetchTrendingAnime } from "@/server/anime";
+import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Watch Anime Free Online - AniHub",
@@ -12,16 +13,22 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const popularanime = await FetchPopularAnime();
-  const trendinganime = await FetchTrendingAnime(8);
-  const trendingmanga = await FetchTrendingManga(8);
+  const trendinganime = await FetchTrendingAnime(16);
+  const topanime = await FetchTopAnime(16);
+  const newanime = await FetchNewAnime(24);
 
   return (
     <>
+    <>
       <main className="md:px-20 md:py-4">
-        <CustomCarousel data={popularanime} sectionurl={"anime"} />
-        <Trending data={trendinganime} trending_name={"Trending Anime"} trending_url={"anime"} />
-        <Trending data={trendingmanga} trending_name={"Trending Manga"} trending_url={"manga"} />
+        <Suspense fallback={<LoadingPage/>}>
+        <CustomCarousel data={popularanime}/>
+        <Cardsection Fetchdata={topanime} SectionText={`Top Anime`} />
+        <Cardsection Fetchdata={trendinganime} SectionText={`Trending Anime`} />
+        <Cardsection Fetchdata={newanime} SectionText={`New Episodes`} />
+        </Suspense>
       </main>
+    </>
     </>
   );
 }

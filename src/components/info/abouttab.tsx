@@ -1,10 +1,10 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
 import { Suspense } from "react"
-import AnimeInfoEps from "./info/episodes"
-import AnimeInfoChar from "./info/characters";
-import AnimeInforRelate from "./info/relateds";
-import AnimeInfoAbout from "./info/about";
+import AnimeInfoEps from "./episodes"
+import AnimeInfoChar from "./characters";
+import AnimeInforRelate from "./relateds";
+import AnimeInfoAbout from "./about";
 
 export default function AboutTab(props:{AnilistInfo: any, Aniid: any, EpisodeData: any}) {
     const episodesdata = props.EpisodeData;

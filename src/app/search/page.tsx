@@ -24,9 +24,8 @@ async function searchAction(formData: FormData) {
     'use server'
 
     const query = formData.get('query') as string
-    const type = formData.get('type') as string
 
-    redirect(`/search?query=${query}&type=${type}`)
+    redirect(`/search?query=${query}`)
 }
 
 export default async function SearchPage({
@@ -36,7 +35,7 @@ export default async function SearchPage({
 }) {
 
     const query = searchParams.query || 'Naruto';
-    const type = searchParams.type?.toUpperCase() || 'ANIME';
+    const type = "ANIME";
 
     const searchResults = await FetchSearch(query, type, '16');
     return (
@@ -52,27 +51,18 @@ export default async function SearchPage({
                             className="flex-grow"
                             defaultValue={searchParams.query}
                         />
-                        <Select name="type" defaultValue={searchParams.type || "anime"}>
-                            <SelectTrigger className="w-[180px]">
-                                <SelectValue placeholder="Select type" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectItem value="anime">Anime</SelectItem>
-                                <SelectItem value="manga">Manga</SelectItem>
-                            </SelectContent>
-                        </Select>
                         <Button type="submit">Search</Button>
                     </div>
                 </form>
 
                 <div className="mt-8">
                     <h2 className="text-xl font-semibold mb-4">
-                        Search Results for "{query}" ({type})
+                        Search Results for "{query}"
                     </h2>
                     <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 lg:gap-6">
                         {searchResults.results.map((item: any, index: any) => (
                             <div key={index} className="group relative rounded-lg overflow-hidden">
-                                <Link href={`/${searchParams.type || "anime"}/info/${item.id}`} className="block" prefetch={false}>
+                                <Link href={`/info/${item.id}`} className="block" prefetch={false}>
                                     <Image
                                         src={item.image}
                                         width={300}

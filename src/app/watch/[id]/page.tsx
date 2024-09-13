@@ -1,5 +1,5 @@
 import { FetchEpisodesSrcAnime, FetchGOGOAnimeInfo } from "@/server/anime";
-import PlayerSelector from "@/components/anime/watch/playerselector";
+import PlayerSelector from "@/components/watch/playerselector";
 import GoBackButton from "@/components/button/back";
 import type { Metadata, ResolvingMetadata } from 'next'
 

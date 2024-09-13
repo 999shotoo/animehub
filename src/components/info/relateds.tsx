@@ -2,14 +2,14 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function MangaInfoRelate(props: any){
+export default function AnimeInforRelate(props: any){
     const related = props.AnilistInfo.relations;
     return (
         <>
             <div className="grid gap-4">
             <ScrollArea className="h-[40vh] md:h-[40vh] lg:h-[60vh] w-full rounded-md">
             {related.map((relate: any, index: any) => (
-                  <Link href={`/manga/info/${relate.id}`} key={index}>
+                  <Link href={`/info/${relate.id}`} key={index}>
                   <div className="flex items-center gap-4 py-2" key={index}>
                       <div className="flex-shrink-0 w-16 h-24 rounded-md overflow-hidden">
                           <Image

@@ -13,18 +13,6 @@ export default function Navbar() {
                         <span className="sr-only">Home</span>
                     </Button>
                     </Link>
-                    <Link href={`/anime`}>
-                    <Button variant="ghost" size="icon" className="rounded-full ">
-                        <Cat className="h-5 w-5" />
-                        <span className="sr-only">Anime</span>
-                    </Button>
-                    </Link>
-                    <Link href={`/manga`}>
-                    <Button variant="ghost" size="icon" className="rounded-full">
-                        <BookText  className="h-5 w-5" />
-                        <span className="sr-only">Manga</span>
-                    </Button>
-                    </Link>
                     <Link href={`/search`}>
                     <Button variant="ghost" size="icon" className="rounded-full">
                         <Search className="h-5 w-5" />
@@ -37,7 +25,6 @@ export default function Navbar() {
                         <span className="sr-only">Account</span>
                     </Button>
                     </Link>
-                    <ThemeToggle />
                 </div>
             </div>
             <div className="block md:hidden">
@@ -45,21 +32,12 @@ export default function Navbar() {
                     <Link href={`/`} className="flex flex-col items-center justify-center gap-1" prefetch={false}>
                         <House className="h-6 w-6 text-muted-foreground" />
                     </Link>
-                    <Link href={`/anime`}  className="flex flex-col items-center justify-center gap-1" prefetch={false}>
-                        <Cat className="h-6 w-6 text-muted-foreground" />
-                    </Link>
-                    <Link href={`/manga`}  className="flex flex-col items-center justify-center gap-1" prefetch={false}>
-                        <BookText className="h-6 w-6 text-muted-foreground" />
-                    </Link>
                     <Link href={`/search`}  className="flex flex-col items-center justify-center gap-1" prefetch={false}>
                         <Search className="h-6 w-6 text-muted-foreground" />
                     </Link>
                     <Link href={`/profile`}  className="flex flex-col items-center justify-center gap-1" prefetch={false}>
                         <UserRoundPen className="h-6 w-6 text-muted-foreground" />
                     </Link>
-                    <div className="flex flex-col items-center justify-center gap-1">
-                        <ThemeToggle />
-                    </div>
                 </nav>
             </div>
         </>
