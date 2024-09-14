@@ -12,15 +12,21 @@ export async function GET(req: NextRequest, res: NextResponse) {
       return NextResponse.json(new Error('Invalid id parameter'), {status:400}); 
     }
 
-    const data = await anilist.fetchAnilistInfoById(id);
-
-    if (!data) {
-      return NextResponse.json('Data not found');
-    }
-
-    return NextResponse.json(data);
-  } catch (error) {
-    console.error(error);
+    try {
+      const data = await anilist.fetchAnilistInfoById(id);
+      if (!data) {
+        return NextResponse.json('Data not found');
+      }
+      return NextResponse.json(data);
+    } catch (error) {
+      try {
+        const alternativeData = await anilist.fetchAnimeInfo(id);
+        delete alternativeData.episodes;
+        return NextResponse.json(alternativeData);
+      } catch (alternativeError) {
+        return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
+      }
+    }} catch (error) {
     return NextResponse.json({error: "Something went wrong"}, {status:500});
   }
 }

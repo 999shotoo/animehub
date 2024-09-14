@@ -15,7 +15,7 @@ export async function generateMetadata(
     const id = params.id;
     const Metainfo = await FetchInfoAnime(id);
     return {
-      title: Metainfo.title.native + ' || AniHub - Watch Anime Free Online' || Metainfo.title.english + ' || AniHub - Watch Anime Free Online',
+  title: Metainfo.title ? (Metainfo.title.native || Metainfo.title.english) + ' || AniHub - Watch Anime Free Online' : 'Default title',
       description: Metainfo.description,
       openGraph: {
         images: [Metainfo.cover],

@@ -19,7 +19,6 @@ export default function Cardsection(props: { Fetchdata: any, SectionText: string
                                         src={data.image}
                                         width={300}
                                         height={400}
-                                         blurDataURL="/blur.jpg"
                                         alt="Anime Thumbnail"
                                         className="w-full h-auto aspect-[3/4] object-cover group-hover:scale-105 transition-transform"
                                     />
