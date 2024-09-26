@@ -28,20 +28,14 @@ export const FetchNewAnime = async (count: number) => {
 
   
 export const FetchGenerAnime = async (genre:string, count: number) => {
-    const data = await fetch(`${process.env.SITE_URL}/api/anime/gener/${genre}?page=1&perPage=${count}`)
+    const data = await fetch(`${process.env.SITE_URL}/api/anime/gener/${genre}?page=1&perPage=${count}`, { next: { revalidate: 3600 } })
     return await data.json();
   }
   
 
 export async function FetchInfoAnime(id: string){
-    try {
-        const alternativeData = await anilist.fetchAnimeInfo(id);
-        delete alternativeData.episodes;
-        return alternativeData;
-      } catch (error) {
-
-          return notFound();
-      }
+    const data = await fetch(`${process.env.SITE_URL}/api/anime/info/${id}`, { next: { revalidate: 3600 } });
+    return await data.json();
 }
 
 export async function FetchInfoAnimeExtra(id: string){
@@ -51,13 +45,8 @@ export async function FetchInfoAnimeExtra(id: string){
 }
 
 export async function FetchEpisodesAnime(id: string){
-    try {
-        const data = await anilist.fetchEpisodesListById(id);
-        return data;
-      } catch (error) {
-        console.error(error);
-        return notFound();
-      }
+    const data = await fetch(`${process.env.SITE_URL}/api/anime/episodes/${id}`, { next: { revalidate: 3600 } });
+    return await data.json();
 }
 
 export async function FetchEpisodesSrcAnime(episodeId: string){
