@@ -1,7 +1,8 @@
 "use client";
-import Image from 'next/image';
-import React, { useState, useEffect } from 'react';
-import ReactPlayer from 'react-player';
+import Image from "next/image";
+import React, { useState, useEffect } from "react";
+import ReactPlayer from "react-player";
+import CoolImage from "../image";
 
 const TrailerPlayer = ({ url, image }: any) => {
   const [playVideo, setPlayVideo] = useState(false);
@@ -15,24 +16,33 @@ const TrailerPlayer = ({ url, image }: any) => {
 
   const handleError = (error: any) => {
     setVideoValid(false);
-  }
+  };
 
   return (
     <>
       {videoValid ? (
-        <ReactPlayer url={url} playing={playVideo} loop={true} controls={true} volume={0.1} width="100%" height="100%" onError={handleError} />
+        <ReactPlayer
+          url={url}
+          playing={playVideo}
+          loop={true}
+          controls={true}
+          volume={0.1}
+          width="100%"
+          height="100%"
+          onError={handleError}
+        />
       ) : (
-        <Image
+        <CoolImage
           src={image}
           alt="Video not available"
-          width={1920}
-          height={1080}
-          className="rounded-lg"
-          style={{ aspectRatio: "7/4", objectFit: "cover" }}
+          width={1300}
+          height={1200}
+          className="rounded-lg object-cover aspect-[7/4]"
+          // style={{ aspectRatio: "7/4", objectFit: "cover" }}
         />
       )}
     </>
   );
-}
+};
 
 export default TrailerPlayer;

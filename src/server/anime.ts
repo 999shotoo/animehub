@@ -1,3 +1,8 @@
+import { META } from '@consumet/extensions';
+import { notFound } from 'next/navigation';
+
+const anilist = new META.Anilist();
+
 export async function FetchPopularAnime(){
     const response = await fetch(`${process.env.SITE_URL}/api/anime/popular`, { next: { revalidate: 3600 } });
     const data = await response.json();
@@ -29,9 +34,14 @@ export const FetchGenerAnime = async (genre:string, count: number) => {
   
 
 export async function FetchInfoAnime(id: string){
-    const response = await fetch(`${process.env.SITE_URL}/api/anime/info/${id}`, { next: { revalidate: 3600 } });
-    const data = await response.json();
-    return data;
+    try {
+        const alternativeData = await anilist.fetchAnimeInfo(id);
+        delete alternativeData.episodes;
+        return alternativeData;
+      } catch (error) {
+
+          return notFound();
+      }
 }
 
 export async function FetchInfoAnimeExtra(id: string){
@@ -41,9 +51,13 @@ export async function FetchInfoAnimeExtra(id: string){
 }
 
 export async function FetchEpisodesAnime(id: string){
-    const response = await fetch(`${process.env.SITE_URL}/api/anime/episodes/${id}`, { next: { revalidate: 3600 } });
-    const data = await response.json();
-    return data;
+    try {
+        const data = await anilist.fetchEpisodesListById(id);
+        return data;
+      } catch (error) {
+        console.error(error);
+        return notFound();
+      }
 }
 
 export async function FetchEpisodesSrcAnime(episodeId: string){
