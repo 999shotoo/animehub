@@ -22,7 +22,7 @@ export async function generateMetadata({
     title:
       Metainfo.title && typeof Metainfo.title === "object"
         ? (Metainfo.title.native || Metainfo.title.english) +
-          " || AniHub - Watch Anime Free Online"
+          " || Kairo - Watch Anime Free Online"
         : "Default title",
     description: Metainfo.description,
     openGraph: {

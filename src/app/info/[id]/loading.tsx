@@ -1,5 +1,11 @@
-import LoadingPage from "@/components/loading";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Loading() {
-    return <LoadingPage />
-  }
+  return (
+    <>
+      <main className="md:px-20 md:py-4">
+        <Skeleton className="h-[95vh] rounded-xl" />
+      </main>
+    </>
+  );
+}
