@@ -9,14 +9,19 @@ export async function GET(req: NextRequest, res: NextResponse) {
     const id = pathname.split('/').pop();
 
     if (id === undefined) {
-      return NextResponse.json(new Error('Invalid id parameter'), {status:400}); 
+      return NextResponse.json(new Error('Invalid id parameter'), { status: 400 });
     }
 
-    const data = await anilist.fetchAnimeInfo(id);
-    delete data.episodes;
-    return NextResponse.json(data);
-  
+    try {
+      const data = await anilist.fetchAnilistInfoById(id);
+      return NextResponse.json(data);
+    } catch (error) {
+      const data = await anilist.fetchAnimeInfo(id);
+      delete data.episodes;
+      return NextResponse.json(data);
+    }
+
   } catch (error) {
-    return NextResponse.json({error: "Something went wrong"}, {status:500});
+    return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
   }
 }
