@@ -34,7 +34,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          {children}
+          <div className="h-[100vh] justify-center item-center">{children}</div>
         </ThemeProvider>
         <div className=" w-full relative">
           <DotPattern

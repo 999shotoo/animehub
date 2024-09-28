@@ -40,7 +40,7 @@ export default async function Info({ params }: any) {
   return (
     <>
       <GoBackButton />
-      <main className="md:px-20 md:py-4">
+      <main className="md:px-20 md:py-10">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-6 md:pt-10">
           <div className="relative">
             <div className="aspect-video rounded-lg overflow-hidden block md:hidden">
